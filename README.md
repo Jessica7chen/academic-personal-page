@@ -1,10 +1,10 @@
-# 🌟 Academic Portfolio Template
+# Academic Portfolio Template
 
-## 🔗 Quick Links
+## Quick Links
 - **[Live Demo (Template)](https://jessica7chen.github.io/academic-personal-page/template.html)**
 - **[Source Code](https://github.com/Jessica7chen/academic-personal-page)**
 
-## 🚀 How to Use
+## How to Use
 
 1. **Download**: Grab the `template.html` file from this repository.
 2. **Rename**: Change the file name to `index.html`.
@@ -13,7 +13,7 @@
    - Update the `Technical Skills` and `Experience` sections with your specific stack and achievements.
 4. **Deploy**: Upload to your GitHub repository and enable **GitHub Pages** in the settings.
 
-## 🛠 Tech Stack
+## Tech Stack
 - **HTML5 / CSS3**: Core structure and styling.
 - **Font Awesome**: Professional icons.
 - **Google Fonts**: Clean system-based typography.
