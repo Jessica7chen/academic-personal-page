@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xinyue Chen | Academic Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --sage-green: #7da87b;
+            --deep-green: #5a7d59;
+            --bg-light: #f1f8e9;
+            --glass-card: rgba(255, 255, 255, 0.85);
+            --text-main: #2d3436;
+            --text-grey: #636e72;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
+        
+        html { 
+            scroll-behavior: smooth; 
+            scroll-snap-type: y mandatory; 
+        }
+
+        body {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            color: var(--text-main);
+        }
+
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            padding: 10px 30px;
+            display: flex;
+            gap: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        header a { text-decoration: none; color: var(--text-main); font-size: 13px; font-weight: 600; transition: 0.3s; }
+        header a:hover { color: var(--sage-green); }
+
+        section {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+            padding: 20px;
+        }
+
+        .glass-box {
+            background: var(--glass-card);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* Home Page Dashboard */
+        .dashboard {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 30px;
+        }
+
+        .sidebar { padding: 50px 30px; text-align: center; }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 4px solid white; object-fit: cover; margin-bottom: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        
+        .name { font-size: 28px; font-weight: 700; color: #333; margin-bottom: 5px; }
+        .tagline { color: var(--sage-green); font-weight: 600; font-size: 15px; margin-bottom: 35px; }
+
+        .contact-group { 
+            width: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            margin-top: 10px;
+            padding-left: 15px; 
+        }
+
+        .contact-item {
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            text-decoration: none; 
+            color: #4a4a4a; 
+            font-size: 15px; 
+            transition: 0.2s;
+        }
+
+        .contact-item i { color: var(--sage-green); width: 20px; font-size: 15px; text-align: center; }
+        .contact-item:hover { color: var(--sage-green); }
+
+        .schedule-btn {
+            margin-top: 10px;
+            padding: 12px 20px;
+            background-color: var(--sage-green);
+            color: white !important;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(125, 168, 123, 0.3);
+            margin-left: -5px;
+        }
+        .schedule-btn:hover { background-color: var(--deep-green); transform: translateY(-2px); }
+
+        .main-info { display: flex; flex-direction: column; gap: 20px; }
+        .info-module { padding: 30px; text-align: left; }
+        .info-module h3 { font-size: 18px; color: var(--deep-green); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+
+        .edu-item { border-left: 3px solid var(--sage-green); padding-left: 20px; margin-bottom: 15px; }
+        .edu-item strong { display: block; font-size: 15px; color: #333; }
+        .edu-item p { font-size: 13px; color: var(--text-grey); }
+
+        .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+        .tag { padding: 8px 16px; background: white; border-radius: 12px; font-size: 13px; font-weight: 500; color: var(--deep-green); border: 1px solid #eee; }
+
+        .inline-link { color: var(--deep-green); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+        /* Experience Grid Layout */
+        .full-module { max-width: 1050px; width: 100%; padding: 40px; }
+        .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card-item { background: rgba(255,255,255,0.4); border-radius: 25px; padding: 20px; text-align: left; display: flex; flex-direction: column; }
+        .card-header { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 5px; font-size: 15px; }
+        .card-sub { font-size: 13px; color: var(--sage-green); margin-bottom: 15px; font-weight: 600; }
+        
+        .exp-image-box { width: 100%; border-radius: 15px; overflow: hidden; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .exp-image-box img { width: 100%; height: 180px; object-fit: cover; }
+
+        /* Projects Bullet Design */
+        .project-bullets { list-style: none; padding-left: 5px; }
+        .project-bullets li { position: relative; padding-left: 25px; margin-bottom: 12px; font-size: 14px; line-height: 1.6; color: #444; }
+        .project-bullets li::before {
+            content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900;
+            position: absolute; left: 0; top: 2px; color: var(--sage-green); font-size: 14px;
+        }
+
+        @media (max-width: 900px) { 
+            .dashboard, .experience-grid { grid-template-columns: 1fr; } 
+            section { height: auto; padding: 100px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#home">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+    </header>
+
+    <section id="home">
+        <div class="dashboard">
+            <aside class="glass-box sidebar">
+                <img src="profile.png" alt="Xinyue Chen" class="profile-img">
+                <h1 class="name">Xinyue Chen</h1>
+                <p class="tagline">Information Systems @ NYU</p>
+                <div class="contact-group">
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> New York City</div>
+                    <div class="contact-item"><i class="fas fa-university"></i> New York University</div>
+                    <a href="mailto:jccchen0721@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> jccchen0721@gmail.com</a>
+                    <a href="https://linkedin.com/in/xinyue-chen-0721abc/" class="contact-item" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/Jessica7chen" class="contact-item" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://cal.com/jessica-chen-pv1upv" class="schedule-btn" target="_blank">
+                        <i class="fas fa-calendar-alt" style="color: white;"></i> Schedule a Call
+                    </a>
+                </div>
+            </aside>
+
+            <div class="main-info">
+                <div class="glass-box info-module">
+                    <h3><i class="fas fa-hand-sparkles"></i> Welcome</h3>
+                    <div style="font-size: 15px; line-height: 1.7; color: #444;">
+                        <p style="margin-bottom: 12px;">I am Xinyue Chen, you can call me Jessica. I'm seeking full-time <strong>Data Analyst / Data Engineer</strong> roles. I thrive on solving complex, ambiguous problems and turning unstructured questions into clear, actionable insights.</p>
+                        <p style="margin-bottom: 12px;">Beyond data, I find inspiration in cinema, crocheting, and photography. View my <a href="https://jcphoto0721.mystrikingly.com/" class="inline-link" target="_blank">Gallery</a>.</p>
+                        <p>
+                            I recently built an custom accounting <a href="https://github.com/Jessica7chen/my-smart-wallet" class="inline-link" target="_blank">page</a> to manage expenses. Feel free to click around and let me know what you think!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-box info-module">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <div class="edu-item">
+                        <strong>M.S. in Information Systems</strong>
+                        <p>New York University | Sep 2023 - Aug 2025</p>
+                    </div>
+                    <div class="edu-item">
+                        <strong>B.A. in Statistics & Data Science</strong>
+                        <p>Rutgers University | Sep 2019 - May 2023</p>
+                    </div>
+                </div>
+
+                <div class="glass-box info-module">
+                    <h3><i class="fas fa-tools"></i> Technical Skills</h3>
+                    <div class="tag-container">
+                        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Tableau</span><span class="tag">Power BI</span>
+                        <span class="tag">ETL Pipelines</span><span class="tag">Hadoop</span><span class="tag">Hive</span><span class="tag">Spark</span>
+                        <span class="tag">Azure SQL</span><span class="tag">Machine Learning</span><span class="tag">Regression Analysis</span><span class="tag">Git</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="glass-box full-module" style="max-width: 1100px;">
+            <h2 style="margin-bottom: 40px; color: var(--deep-green); text-align: center;">Work Experience</h2>
+            
+            <div class="experience-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                
+                <div class="card-item" style="display: flex; flex-direction: column;">
+                    <div class="card-header">
+                        <strong style="font-size: 16px;">Software Engineer</strong>
+                        <span style="font-size: 12px; color: var(--sage-green); font-weight: 600;">Jan 2025 - May 2025</span>
+                    </div>
+                    <div class="card-sub" style="margin-bottom: 20px;">Diggs | New York City, NY</div>
+                    
+                    <ul class="project-bullets">
+                        <li>Designed and implemented a data-driven shipping system using <strong>JavaScript</strong>, integrating <strong>UPS Rate APIs</strong> to automate scalable pricing.</li>
+                        <li>Collaborated with product managers using <strong>Data Visualization</strong> to turn complex insights into actionable narratives for pricing decisions.</li>
+                        <li>Modeled fulfillment costs using historical data, achieving a <strong>15% to 25% reduction</strong> in shipping expenses.</li>
+                    </ul>
+                </div>
+    
+                <div class="card-item" style="display: flex; flex-direction: column;">
+                    <div class="card-header">
+                        <strong style="font-size: 16px;">Data Analyst Intern</strong>
+                        <span style="font-size: 12px; color: var(--sage-green); font-weight: 600;">Jun 2024 - Jan 2025</span>
+                    </div>
+                    <div class="card-sub" style="margin-bottom: 20px;">Purrfest | Jersey City, NJ</div>
+                    
+                    <ul class="project-bullets">
+                        <li>Standardized order-level sales data using <strong>SQL</strong> to establish consistent benchmarks for business trend assessment.</li>
+                        <li>Integrated content timelines with sales data using <strong>Python</strong>, contributing to a <strong>28% increase</strong> in monthly sales.</li>
+                        <li>Assessed inventory risks via <strong>SQL and Tableau</strong>, reducing operational cost risks by <strong>10%</strong>.</li>
+                    </ul>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="glass-box full-module">
+            <h2 style="margin-bottom: 30px; color: var(--deep-green); text-align: center;">Featured Projects</h2>
+            <div class="card-item" style="margin-bottom: 15px;">
+                <h3 style="color: var(--sage-green); margin-bottom: 10px;">Risk Measurement in Urban Mobility</h3>
+                <ul class="project-bullets">
+                    <li>Optimized <strong>Hive SQL ETL</strong> on HDFS for 1M+ records; pinpointed traffic shifts under extreme weather.</li>
+                    <li>Developed <strong>Power BI KPI dashboards</strong> to uncover correlations between visibility and mobility risks.</li>
+                </ul>
+            </div>
+            <div class="card-item">
+                <h3 style="color: var(--sage-green); margin-bottom: 10px;">Healthcare Risk Analytics</h3>
+                <ul class="project-bullets">
+                    <li>Architected <strong>Azure SQL schemas</strong> and integrated a <strong>Flask app</strong> to automate insurance risk assessment.</li>
+                    <li>Engineered <strong>Logistic Regression</strong> models to evaluate insurance risk features and ensure high-fidelity scoring.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
