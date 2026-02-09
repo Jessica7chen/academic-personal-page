@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Academic Portfolio Template</title>
+    <title>[Your Name] | Academic Portfolio</title>
+    <link rel="icon" type="image/png" href="profile.png">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -16,32 +18,104 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
-        html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
-        body { background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%); color: var(--text-main); }
+        
+        html { 
+            scroll-behavior: smooth; 
+            scroll-snap-type: y mandatory; 
+        }
+
+        body {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            color: var(--text-main);
+        }
 
         header {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            z-index: 1000; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(15px);
-            border-radius: 40px; padding: 10px 30px; display: flex; gap: 25px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            padding: 10px 30px;
+            display: flex;
+            gap: 25px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
+
         header a { text-decoration: none; color: var(--text-main); font-size: 13px; font-weight: 600; transition: 0.3s; }
         header a:hover { color: var(--sage-green); }
 
-        section { height: 100vh; width: 100%; display: flex; justify-content: center; align-items: center; scroll-snap-align: start; padding: 20px; }
-        .glass-box { background: var(--glass-card); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        section {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+            padding: 20px;
+        }
 
-        /* Sidebar & Home */
-        .dashboard { max-width: 1100px; width: 100%; display: grid; grid-template-columns: 320px 1fr; gap: 30px; }
+        .glass-box {
+            background: var(--glass-card);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .dashboard {
+            max-width: 1200px; /* 保持你要求的宽度 */
+            width: 100%;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 30px;
+        }
+
         .sidebar { padding: 50px 30px; text-align: center; }
         .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 4px solid white; object-fit: cover; margin-bottom: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        
         .name { font-size: 28px; font-weight: 700; color: #333; margin-bottom: 5px; }
         .tagline { color: var(--sage-green); font-weight: 600; font-size: 15px; margin-bottom: 35px; }
 
-        .contact-group { width: 100%; display: flex; flex-direction: column; gap: 15px; margin-top: 10px; padding-left: 15px; }
-        .contact-item { display: flex; align-items: center; gap: 15px; text-decoration: none; color: #4a4a4a; font-size: 15px; transition: 0.2s; }
-        .contact-item i { color: var(--sage-green); width: 20px; text-align: center; }
+        .contact-group { 
+            width: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            margin-top: 10px;
+            padding-left: 15px; 
+        }
+
+        .contact-item {
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            text-decoration: none; 
+            color: #4a4a4a; 
+            font-size: 15px; 
+            transition: 0.2s;
+        }
+
+        .contact-item i { color: var(--sage-green); width: 20px; font-size: 15px; text-align: center; }
         .contact-item:hover { color: var(--sage-green); }
+
+        .schedule-btn {
+            margin-top: 10px;
+            padding: 12px 20px;
+            background-color: var(--sage-green);
+            color: white !important;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(125, 168, 123, 0.3);
+            margin-left: -5px;
+        }
+        .schedule-btn:hover { background-color: var(--deep-green); transform: translateY(-2px); }
 
         .main-info { display: flex; flex-direction: column; gap: 20px; }
         .info-module { padding: 30px; text-align: left; }
@@ -51,18 +125,18 @@
         .edu-item strong { display: block; font-size: 15px; color: #333; }
         .edu-item p { font-size: 13px; color: var(--text-grey); }
 
-        .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-        .tag { padding: 8px 16px; background: white; border-radius: 12px; font-size: 13px; font-weight: 500; color: var(--deep-green); border: 1px solid #eee; }
+        .skill-row { display: flex; align-items: baseline; margin-bottom: 12px; font-size: 15px; line-height: 1.6; }
+        .skill-category { color: var(--sage-green); font-weight: 700; width: 230px; flex-shrink: 0; }
+        .skill-list { color: var(--text-main); }
+
         .inline-link { color: var(--deep-green); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
-        /* Shared Components */
         .full-module { max-width: 1100px; width: 100%; padding: 40px; }
-        .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .card-item { background: rgba(255,255,255,0.4); border-radius: 25px; padding: 25px; text-align: left; }
+        .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .card-item { background: rgba(255,255,255,0.4); border-radius: 25px; padding: 25px; text-align: left; display: flex; flex-direction: column; }
         .card-header { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 5px; font-size: 15px; }
         .card-sub { font-size: 13px; color: var(--sage-green); margin-bottom: 15px; font-weight: 600; }
-
-        /* Project Bullets */
+        
         .project-bullets { list-style: none; padding-left: 5px; }
         .project-bullets li { position: relative; padding-left: 25px; margin-bottom: 12px; font-size: 14px; line-height: 1.6; color: #444; }
         .project-bullets li::before {
@@ -73,6 +147,8 @@
         @media (max-width: 900px) { 
             .dashboard, .experience-grid { grid-template-columns: 1fr; } 
             section { height: auto; padding: 100px 20px; }
+            .skill-row { flex-direction: column; gap: 5px; }
+            .skill-category { width: 100%; }
         }
     </style>
 </head>
@@ -87,14 +163,18 @@
     <section id="home">
         <div class="dashboard">
             <aside class="glass-box sidebar">
-                <img src="yourprofile.img" alt="Your Name" class="profile-img" onerror="this.src='https://via.placeholder.com/180'">
-                <h1 class="name">Your Name</h1>
-                <p class="tagline">Job Title / Major @ University</p>
+                <img src="profile.png" alt="Profile" class="profile-img" onerror="this.src='https://via.placeholder.com/180'">
+                <h1 class="name">[Your Name]</h1>
+                <p class="tagline">[Your Major/Title]</p>
                 <div class="contact-group">
-                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Your City, State</div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> [City, State]</div>
+                    <div class="contact-item"><i class="fas fa-university"></i> [University Name]</div>
                     <a href="mailto:your.email@example.com" class="contact-item"><i class="fas fa-envelope"></i> Email Address</a>
-                    <a href="#" class="contact-item" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
-                    <a href="#" class="contact-item" target="_blank"><i class="fab fa-github"></i> GitHub Profile</a>
+                    <a href="#" class="contact-item" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#" class="contact-item" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="schedule-btn" target="_blank">
+                        <i class="fas fa-calendar-alt" style="color: white;"></i> Schedule a Call
+                    </a>
                 </div>
             </aside>
 
@@ -102,24 +182,43 @@
                 <div class="glass-box info-module">
                     <h3><i class="fas fa-hand-sparkles"></i> Welcome</h3>
                     <div style="font-size: 15px; line-height: 1.7; color: #444;">
-                        <p style="margin-bottom: 12px;">Hi, I'm <strong>Your Name</strong>. Briefly introduce who you are and what you're passionate about. Mention the roles you are currently seeking (e.g., Data Analyst, Developer).</p>
-                        <p>I also enjoy building side projects. Check out my latest work on this <a href="#" class="inline-link" target="_blank">page</a> and feel free to reach out!</p>
+                        <p style="margin-bottom: 12px;">Hi, I'm <strong>[Your Name]</strong>. Introduce yourself here. Describe your professional background and the impact you aim to make.</p>
+                        <p style="margin-bottom: 12px;">Share your interests or other professional links <a href="#" class="inline-link" target="_blank">[Portfolio/Link]</a>.</p>
+                        <p>Mention any specific side projects or tools you've built <a href="#" class="inline-link" target="_blank">[Project Link]</a>.</p>
                     </div>
                 </div>
 
                 <div class="glass-box info-module">
                     <h3><i class="fas fa-graduation-cap"></i> Education</h3>
                     <div class="edu-item">
-                        <strong>Degree Name (e.g., M.S. in Information Systems)</strong>
-                        <p>University Name | Graduation Date</p>
+                        <strong>[Degree Name]</strong>
+                        <p>[University Name] | [Start Year] - [End Year]</p>
+                    </div>
+                    <div class="edu-item">
+                        <strong>[Previous Degree Name]</strong>
+                        <p>[Previous University Name] | [Start Year] - [End Year]</p>
                     </div>
                 </div>
 
                 <div class="glass-box info-module">
                     <h3><i class="fas fa-tools"></i> Technical Skills</h3>
-                    <div class="tag-container">
-                        <span class="tag">Skill 1</span><span class="tag">Skill 2</span><span class="tag">Skill 3</span>
-                        <span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Git</span>
+                    <div style="margin-top: 10px;">
+                        <div class="skill-row">
+                            <span class="skill-category">Languages & Frameworks:</span>
+                            <span class="skill-list">[Skill 1, Skill 2, Skill 3]</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-category">Data Engineering & Big Data:</span>
+                            <span class="skill-list">[Skill 1, Skill 2, Skill 3]</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-category">Analytics & Visualization:</span>
+                            <span class="skill-list">[Skill 1, Skill 2, Skill 3]</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-category">Tools & Methodologies:</span>
+                            <span class="skill-list">[Skill 1, Skill 2, Skill 3]</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,22 +227,22 @@
 
     <section id="experience">
         <div class="glass-box full-module">
-            <h2 style="margin-bottom: 40px; color: var(--deep-green); text-align: center;">Work Experience</h2>
+            <h2 style="margin-bottom: 30px; color: var(--deep-green); text-align: center;">Experience</h2>
             <div class="experience-grid">
                 <div class="card-item">
-                    <div class="card-header"><strong>Job Title</strong><span>Date - Date</span></div>
-                    <div class="card-sub">Company Name | Location</div>
+                    <div class="card-header"><strong>[Job Title]</strong><span>[Start Date] - [End Date]</span></div>
+                    <div class="card-sub">[Company Name] | [Location]</div>
                     <ul class="project-bullets">
-                        <li>Description of a key achievement or responsibility.</li>
-                        <li>Highlight technical tools used and quantifiable results (e.g., improved efficiency by 20%).</li>
+                        <li>Description of a key responsibility or technical achievement.</li>
+                        <li>Highlight quantifiable results (e.g., improved efficiency by X%).</li>
                     </ul>
                 </div>
                 <div class="card-item">
-                    <div class="card-header"><strong>Job Title</strong><span>Date - Date</span></div>
-                    <div class="card-sub">Company Name | Location</div>
+                    <div class="card-header"><strong>[Job Title]</strong><span>[Start Date] - [End Date]</span></div>
+                    <div class="card-sub">[Company Name] | [Location]</div>
                     <ul class="project-bullets">
-                        <li>Description of a key achievement or responsibility.</li>
-                        <li>Showcase your impact on the business or project.</li>
+                        <li>Description of another significant role or project.</li>
+                        <li>Showcase technical tools and soft skills used.</li>
                     </ul>
                 </div>
             </div>
@@ -152,19 +251,19 @@
 
     <section id="projects">
         <div class="glass-box full-module">
-            <h2 style="margin-bottom: 40px; color: var(--deep-green); text-align: center;">Featured Projects</h2>
-            <div class="card-item" style="margin-bottom: 20px;">
-                <h3 style="color: var(--sage-green); margin-bottom: 10px;">Project Title 1</h3>
+            <h2 style="margin-bottom: 30px; color: var(--deep-green); text-align: center;">Featured Projects</h2>
+            <div class="card-item" style="margin-bottom: 15px;">
+                <h3 style="color: var(--sage-green); margin-bottom: 10px;">[Project Name 1]</h3>
                 <ul class="project-bullets">
                     <li>Summary of what the project does and the technology stack used.</li>
-                    <li>Key feature or data insight generated from the project.</li>
+                    <li>Key insight or outcome from the project.</li>
                 </ul>
             </div>
             <div class="card-item">
-                <h3 style="color: var(--sage-green); margin-bottom: 10px;">Project Title 2</h3>
+                <h3 style="color: var(--sage-green); margin-bottom: 10px;">[Project Name 2]</h3>
                 <ul class="project-bullets">
-                    <li>Describe the problem you solved and your approach.</li>
-                    <li>Links to the live demo or repository.</li>
+                    <li>Description of the problem solved and the approach taken.</li>
+                    <li>Quantifiable metrics or impactful conclusions.</li>
                 </ul>
             </div>
         </div>
