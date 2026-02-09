@@ -2,7 +2,6 @@
 
 ## Quick Links
 - **[Live Demo (Template)](https://jessica7chen.github.io/academic-personal-page/template.html)**
-- **[Source Code](https://github.com/Jessica7chen/academic-personal-page)**
 
 ## How to Use
 
